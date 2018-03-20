@@ -16,7 +16,7 @@ int main() {
         
         int i, j;
         
-        // setting position to the top right corner 
+        // setting position to the top right corner of the found ring (1-indexed)
         i = j = x/2 + n/2 + 1;
         
         // avoiding floating-point exception
