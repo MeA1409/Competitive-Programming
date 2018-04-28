@@ -18,10 +18,6 @@ struct Node {
 
 Node skyline[1000001];
 
-void pushData(int index) {
-    
-}
-
 int Update(int index, int L, int R, int l, int r, int height) {
     if (L > R || r < L || R < l) return 0;
     
