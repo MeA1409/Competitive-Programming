@@ -44,10 +44,11 @@ int main() {
 	    vector <int> array(n), fTable(n); 
 	    for (int i = 0; i < n; i++) 
 	        cin >> array[i];
-      map<int, int> leftMost,
-                      rightMost;
+     	    
+	    map<int, int> leftMost,
+             	           rightMost;
                       
-      for (int i = 0; i < n; ) {
+      	    for (int i = 0; i < n; ) {
 	        int j = 0;
 	        for (int k = i; k < n && array[k] == array[i]; k++) j++;
 	        
@@ -55,12 +56,13 @@ int main() {
 	        for (int k = 0; k < j; k++) 
 	            fTable[i++] = j;
 	    }
+	    
 	    buildTree(1, 0, n-1, fTable);
 	    
 	    int l, r; 
 	    int answer = -1;
 	    while (q--) {
-          // inputting bounds
+            // inputting bounds
 	        cin >> l >> r;
 	        l--, r--;
 	         
@@ -68,7 +70,7 @@ int main() {
 	            answer = r - l + 1;
               
 	        // leftMost's and rightMost's all values are present within bounds
-          else if ((l == 0 || array[l] != array[l-1]) && (r == n - 1 || array[r] != array[r+1]))
+          	else if ((l == 0 || array[l] != array[l-1]) && (r == n - 1 || array[r] != array[r+1]))
 	            answer = RMQ(1, 0, n-1, l, r);
               
 	        // rightMost's all values are present in- and also outside the bounds 
