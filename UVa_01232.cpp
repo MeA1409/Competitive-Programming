@@ -18,6 +18,10 @@ struct Node {
 
 Node skyline[1000001];
 
+void pushData(int index) {
+    
+}
+
 int Update(int index, int L, int R, int l, int r, int height) {
     if (L > R || r < L || R < l) return 0;
     
@@ -29,12 +33,21 @@ int Update(int index, int L, int R, int l, int r, int height) {
         return 0;
     }
     
+    if (skyline[index].onHold) {
+        skyline[index*2].minHeight = skyline[index*2].maxHeight = skyline[index].maxHeight;
+        skyline[index*2].onHold = true;
+        
+        skyline[index*2+1].minHeight = skyline[index*2+1].maxHeight = skyline[index].maxHeight;
+        skyline[index*2+1].onHold = true;
+        
+        skyline[index].onHold = false;
+    }
+    
     int M = L + (R-L)/2;
     if (l <= L && R <= r) {
         if (height >= skyline[index].maxHeight) {
             skyline[index].minHeight = skyline[index].maxHeight = height;
-            Update(index*2, L, M, l, r, height);
-            Update(index*2 + 1, M + 1, R, l, r, height);
+            skyline[index].onHold = true;
             return R - L + 1;
         }
         else if (height >= skyline[index].minHeight) {
