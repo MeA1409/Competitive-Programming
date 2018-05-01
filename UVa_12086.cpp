@@ -32,7 +32,7 @@ void Construct(int array[]) {
 
 int main() {
 	ios_base::sync_with_stdio(0);
-    int t = 1;
+    	int t = 1;
 	while (cin >> n, n > 0) {
 	    if (t > 1) cout << endl;
 	    cout << "Case " << t++ << ":\n";
