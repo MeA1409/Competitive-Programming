@@ -57,10 +57,9 @@ void lazyUpdate(int index, int L, int R) {
 }
 
 void Update(int index, int L, int R, int a, int b, int type) {
-    if (a > R || b < L) return;
-    
     lazyUpdate(index, L, R);
-    
+    if (a > R || b < L) return;
+     
     if (a <= L && R <= b) {
         if (type == ZERO) {
             tree[index] = (R - L + 1);
@@ -94,9 +93,8 @@ void Update(int index, int L, int R, int a, int b, int type) {
 }
 
 int Query(int index, int L, int R, int a, int b) {
-    lazyUpdate(index, L, R);
     if (a > R || b < L) return 0;
-
+    lazyUpdate(index, L, R);
     if (a <= L && R <= b)
         return tree[index];
 
