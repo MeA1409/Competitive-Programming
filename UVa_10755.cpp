@@ -1,8 +1,4 @@
-// morris's got an amazing O(n^5) algorithm
-
 #include <iostream>
-#include <vector>
-
 using namespace std;
 
 int main() {
@@ -20,9 +16,6 @@ int main() {
 	        for (int j = 0; j < b; j++) { 
 	            for (int k = 0; k < c; k++) {
 	                cin >> box[i][j][k];
-	                if (box[i][j][k] > ans) 
-	                    ans = box[i][j][k];
-	                
 	                pillarSum[i][j][k] = box[i][j][k];
 	                if (i > 0) 
 	                    pillarSum[i][j][k] += pillarSum[i-1][j][k];
