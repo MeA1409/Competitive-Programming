@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-	ios_base::sync_with_stdio(0);
+    ios_base::sync_with_stdio(0);
     int n, m; 
     while (cin >> n >> m, n > 0 && m > 0) {
         vector < vector <int> > mat(n, vector <int>(m));
