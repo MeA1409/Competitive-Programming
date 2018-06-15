@@ -10,13 +10,13 @@ int main() {
 	while (t--) {
 	  cin >> n >> m;
 		vector <vector <int>> mat(n+1, vector <int>(m+1, 0)),
-							  sol(n+1, vector <int>(m+1, 0));
+				      sol(n+1, vector <int>(m+1, 0));
 
 		for (int i = 1; i <= n; i++)
 			for (int j = 1; j <= m; j++)
 				cin >> mat[i][j];
 		
-    for (int i = 1; i <= m; i++)
+    		for (int i = 1; i <= m; i++)
 			if (mat[1][i] >= 5)
 				sol[1][i] = mat[1][i];
 		
