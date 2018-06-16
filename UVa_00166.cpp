@@ -2,7 +2,7 @@
 using namespace std;
 
 int coin[] = {5, 10, 20, 50, 100, 200};
-int minCoin[301];
+int minCoin[201];
 int pocket[6];
 
 int min(int a, int b) {
@@ -40,7 +40,7 @@ int main() {
     memset(minCoin, 1000000, sizeof(minCoin));
     minCoin[0] = 0;
     for (int i = 5; i >= 0; i--) {
-        for (int j = coin[i]; j < 301; j++)
+        for (int j = coin[i]; j < 201; j++)
             minCoin[j] = min(minCoin[j], 1 + minCoin[j-coin[i]]);
     }
     
