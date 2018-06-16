@@ -50,5 +50,5 @@ int main() {
         vector <vector <int>> memo(6, vector <int>(501, -1));
         cout << setw(3) << right << solve(0, amount, memo) << endl;
     }
-	return 0;
+    return 0;
 }
