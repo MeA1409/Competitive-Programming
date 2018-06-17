@@ -4,10 +4,6 @@ using namespace std;
 
 typedef pair<int, int> pii;
 
-int min(int a, int b) {
-    return a < b? a : b;
-}
-
 pii solve(vector <vector <pii>> &mem, vector <int> &ar,
                                             int id, int rem) 
 {
@@ -46,3 +42,48 @@ int main() {
 	}
 	return 0;
 }
+
+
+/*
+/////////////////////////////////////////
+// iterative solution (quicker overall)
+/////////////////////////////////////////
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+const int inf = (int) 1e9;
+
+int min(int a, int b) {
+    return a < b? a : b;
+}
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	int t; cin >> t;
+	while (t--) {
+	    int s, n; cin >> s >> n;
+	    
+	    vector <int> memo(20001, inf);
+	    vector <int> ar(n);
+	    for (int i = 0; i < n; i++)
+	        cin >> ar[i];
+	    
+	    memo[0] = 0;
+	    for (int i = 0; i < n; i++) {
+	        for (int j = 20000; j >= ar[i]; j--)
+	            memo[j] = min(memo[j], 1 + memo[j-ar[i]]);
+	    }
+	    int amt = inf, coins = inf;
+	    for (int j = s; j <= 20000; j++)
+	        if (memo[j] != inf) {
+	            amt = j;
+	            coins = memo[j];
+	            break;
+	        }
+	    cout << amt << " " << coins << endl;
+	}
+	return 0;
+}
+*/
